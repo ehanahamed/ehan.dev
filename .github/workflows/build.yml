@@ -1,4 +1,4 @@
-name: Update Site & Docs
+name: Build
 on:
   workflow_dispatch:
     inputs:
@@ -8,7 +8,7 @@ on:
         type: 'string'
 jobs:
   build:
-    name: Update site & docs
+    name: Build Site
     runs-on: ubuntu-latest
     steps:
       - name: Clone (from GitHub)
