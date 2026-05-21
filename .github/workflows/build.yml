@@ -1,0 +1,28 @@
+name: Build
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        default: 'main'
+        required: true
+        type: 'string'
+jobs:
+  build:
+    name: Build Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone (from GitHub)
+        run: git clone --branch "${{ inputs.branch }}" --single-branch https://github.com/ehanahamed/ehan.dev.git
+      - name: Build Site
+        run: |
+          cd ehan.dev/
+          npm install
+          npm run build
+      - name: Commit & Push
+        run: |
+          cd ehan.dev/
+          git add .
+          git config --global user.name "Ehan A"
+          git config --global user.email "ehan@ehanaha.me"
+          git commit -m "Build Site"
+          git push https://ehanahamed:${{ secrets.GH_TOKEN }}@github.com/ehanahamed/ehan.dev.git "${{ inputs.branch }}"
