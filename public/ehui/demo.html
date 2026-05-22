@@ -890,7 +890,7 @@
             <div>
                         <div class="spinner"></div>
             </div>
-            <p>Add <code>yay, ohno, love, fg0, fg1, main</code> classes for colors</p>
+            <p>Add <code>yay, ohno, love, fg0, fg1, main, currentcolor or currentColor</code> classes for colors (or <code>color-yay, color-ohno, color-love, color-fg0, color-fg1, color-main, color-currentcolor or color-currentColor</code>)</p>
             <div class="flex">
                         <div class="spinner yay"></div>
                         <div class="spinner ohno"></div>
@@ -898,6 +898,7 @@
                         <div class="spinner fg0"></div>
                         <div class="spinner fg1"></div>
                         <div class="spinner main"></div>
+                        <div class="spinner currentcolor"></div>
             </div>
                     <p>Change speed with <code>speed-fast, speed-mid, speed-slow, speed-slower, speed-slowest</code> classes or <code>time-0.5 or time-1/2, time-1, time-2, time-4, time-6</code> classes</p>
             <div class="flex">
@@ -933,6 +934,16 @@
                         <div class="spinner thick size-3rem"></div>
                         <div class="spinner thick size-4rem"></div>
             </div>
+			<p>Use class <code>semi-trans</code> or <code>bg-semi-trans</code> to use the spinner's primary color (but semi-transparent) as the secondary color, useful for spinners inside of elements with background colors, like buttons.</p>
+			<div class="flex">
+				<div class="spinner semi-trans"></div>
+			</div>
+			<div class="flex">
+				<button>
+					<div class="spinner semi-trans"></div>
+					Example
+				</button>
+			</div>
         </div>
       </div>
     </main>
