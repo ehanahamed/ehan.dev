@@ -1,0 +1,8 @@
+srv.ehan.dev {
+    handle /umami* {
+        reverse_proxy localhost:8083
+    }
+    handle {
+        respond "404 Not Found" 404
+    }
+}
