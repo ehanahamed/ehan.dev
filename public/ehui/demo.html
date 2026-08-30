@@ -1015,6 +1015,27 @@
 					Example
 				</button>
 			</div>
+            <p>Add badges/attention dots to other elements using this <code>with-badge</code> class. Customize the color by setting a <code>--badge-color</code> css variable/property.</p>
+                    <p>For example: <code>&lt;button class="alt with-badge"&gt;Button With Badge&lt;/button&gt;</code></p>
+                    <p>Another example: <code>&lt;button class="alt with-badge" style="--badge-color: var(--yay)"&gt;Button With Green Badge&lt;/button&gt;</code></p>
+                    <div class="flex">
+                        <button class="alt with-badge">Button With Badge</button>
+                        <button class="alt with-badge" style="--badge-color: var(--yay)">Button With Green Badge</button>
+                    </div>
+                    <p>Control the offset of the badge with <code>--badge-offset</code> for the default top-right corner.</p>
+                    <p>For example, <code>--badge-offset: -10px;</code> or <code>--badge-offset: 5px;</code></p>
+                    <div class="flex">
+                        <button class="alt with-badge" style="--badge-offset: -10px;">Badge with Offset</button>
+                        <button class="alt with-badge" style="--badge-offset: 5px;">Different Offset</button>
+                    </div>
+                    <p>Use <code>--badge-left</code>, <code>--badge-top</code>, <code>--badge-right</code>, <code>--badge-bottom</code> instead of <code>--badge-offset</code> to fully customize the position.</p>
+                    <p>For example, <code>--badge-left: 0px; --badge-right: auto;</code> or <code>--badge-top: auto; --badge-bottom: 0px;</code></p>
+                    <div class="flex">
+                        <button class="alt with-badge" style="--badge-left: 0px; --badge-right: auto;">One Side</button>
+                        <button class="alt with-badge" style="--badge-top: auto; --badge-bottom: 0px;">Another Side</button>
+                    </div>
+                    <p>This <code>with-badge</code> class can be applied to a variety of elements, like buttons in examples above, and also divs/boxes/etc:</p>
+                    <div class="box with-badge" style="--badge-offset: -0.2rem;">Example with <code>--badge-offset: -0.2rem;</code></div>
         </div>
       </div>
     </main>
