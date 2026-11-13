@@ -18,7 +18,6 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
 <style is:global>
     :root {
         --eh-bg--1: #eceff3;
-        --eh-gm-border: var(--fg-0);
     }
     .only-light-theme,
     .grid-motion__tile img.only-light-theme {
@@ -31,7 +30,6 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
     @media (prefers-color-scheme: dark) {
         :root {
             --eh-bg--1: var(--bg-0);
-            --eh-gm-border: var(--border);
         }
         .only-light-theme,
         .grid-motion__tile img.only-light-theme {
@@ -54,92 +52,90 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
     <div class="grid page" style="background-color: var(--eh-bg--1); padding-top: 1rem; margin-bottom: 8rem;">
         <div class="content">
             <div class="flex">
+                <div>
+                    <p class="fg0" style="padding-left: 0.8rem;">Codeberg:</p>
+                    <a class="button faint" style="margin-top: 0px;" href="https://codeberg.org/ehanahamed">
+                        <CodebergIcon></CodebergIcon>
+                        ehanahamed
+                    </a>
+                </div>
+                <div>
+                    <p class="fg0" style="padding-left: 0.8rem;">GitHub:</p>
+                    <a class="button faint" style="margin-top: 0px;" href="https://github.com/ehanahamed">
+                        <GitHubIcon></GitHubIcon>
+                        ehanahamed
+                    </a>
+                </div>
+                <div>
+                    <p class="fg0" style="padding-left: 0.8rem;">Email:</p>
+                    <div style="margin-top: 0px; padding: 0.6rem 1rem;">
+                        ehan@ehan.dev
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="trans-dots" style="--trans-dots-color: var(--eh-bg--1); position: sticky; top: 0; z-index: 10; height: 4rem; display: flex; flex-wrap: nowrap; align-items: center; padding-left: 1rem;">
+                    <h2 class="h4" style="margin: 0;">Projects</h2>
+                </div>
+                <div style="position: relative; width: 100%; height: 40rem;">
+                    <div style="position: absolute; z-index: 3; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-wrap: nowrap;">
+                        <h2>Quizfreely</h2>
+                        <p>Free and open-source studying tool</p>
+                    </div>
+                    <div class="only-light-theme" style="position: absolute; z-index: 2; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--bg-0); opacity: 0.1;"></div>
+                    <div style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0;">
+                        <QzfrGridMotion client:load />
+</div>
+                </div>
+            </div>
+            <div class="grid customgridlist">
+                <div class="box">
+                    <h3>Quizfreely</h3>
+                    <p>A free & open source studying tool</p>
                     <div>
-                        <p class="fg0" style="padding-left: 0.8rem;">Codeberg:</p>
-                        <a class="button faint" style="margin-top: 0px;" href="https://codeberg.org/ehanahamed">
-                            <CodebergIcon></CodebergIcon>
-                            ehanahamed
-                        </a>
+                        <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+                        <a href="https://quizfreely.org/"
+                            class="button alt no-box-shadow"
+                            style="margin-top: 0.2rem;"
+                        >quizfreely.org</a>
                     </div>
                     <div>
-                        <p class="fg0" style="padding-left: 0.8rem;">GitHub:</p>
-                        <a class="button faint" style="margin-top: 0px;" href="https://github.com/ehanahamed">
-                            <GitHubIcon></GitHubIcon>
-                            ehanahamed
-                        </a>
-                    </div>
-                    <div>
-                        <p class="fg0" style="padding-left: 0.8rem;">Email:</p>
-                        <div style="margin-top: 0px; padding: 0.6rem 1rem;">
-                            ehan@ehan.dev
+                        <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+                        <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
+                            <a href="https://codeberg.org/quizfreely/quizfreely"
+                                class="button faint"
+                            ><CodebergIcon></CodebergIcon> Codeberg</a>
+                            <a
+                                href="https://github.com/quizfreely/quizfreely"
+                                class="button faint"
+                            ><GitHubIcon></GitHubIcon> GitHub</a>
                         </div>
                     </div>
-            </div>
-                <div>
-            <div class="trans-dots" style="position: sticky; top: 0; z-index: 10;">
-        <h2 class="h3" style="margin-top: 3rem;">Projects</h2>
-            </div>
-            <div style="position: relative; width: 100%; height: 40rem;">
-                <div style="position: absolute; z-index: 3; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-wrap: nowrap;">
-                    <h2>Quizfreely</h2>
-                    <p>Free and open-source studying tool</p>
                 </div>
-                <div class="only-light-theme" style="position: absolute; z-index: 2; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--bg-0); opacity: 0.1;"></div>
-                <div style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0;">
-                    <QzfrGridMotion client:load />
-</div>
+                <div class="box">
+                    <h3>EhUI</h3>
+                    <p>Customizable and themeable UI kit</p>
+                    <div>
+                        <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+                        <a href="https://ehan.dev/ehui"
+                            class="button alt no-box-shadow"
+                            style="margin-top: 0.2rem;"
+                        >ehan.dev/ehui</a>
+                    </div>
+                    <div>
+                        <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+                        <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
+                            <a href="https://codeberg.org/ehanahamed/ehui"
+                                class="button faint"
+                            ><CodebergIcon></CodebergIcon> Codeberg</a>
+                            <a
+                                href="https://github.com/ehanahamed/ehui"
+                                class="button faint"
+                            ><GitHubIcon></GitHubIcon> GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="grid customgridlist">
-          <div class="box">
-            <h3>Quizfreely</h3>
-            <p>A free & open source studying tool</p>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
-              <a href="https://quizfreely.org/"
-                class="button alt no-box-shadow"
-                style="margin-top: 0.2rem;"
-              >quizfreely.org</a>
-            </div>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
-              <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
-                <a href="https://codeberg.org/quizfreely/quizfreely"
-                  class="button faint"
-                ><CodebergIcon></CodebergIcon> Codeberg</a>
-                <a
-                  href="https://github.com/quizfreely/quizfreely"
-                  class="button faint"
-                ><GitHubIcon></GitHubIcon> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="box">
-            <h3>EhUI</h3>
-            <p>Customizable and themeable UI kit</p>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
-              <a href="https://ehan.dev/ehui"
-                class="button alt no-box-shadow"
-                style="margin-top: 0.2rem;"
-              >ehan.dev/ehui</a>
-            </div>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
-              <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
-                <a href="https://codeberg.org/ehanahamed/ehui"
-                  class="button faint"
-                ><CodebergIcon></CodebergIcon> Codeberg</a>
-                <a
-                  href="https://github.com/ehanahamed/ehui"
-                  class="button faint"
-                            ><GitHubIcon></GitHubIcon> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 </Layout>

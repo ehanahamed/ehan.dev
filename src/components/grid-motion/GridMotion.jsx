@@ -8,12 +8,12 @@ const THEMES = {
   dark: {
     tile: 'var(--bg-1)',
     text: 'var(--fg-0)',
-    border: 'var(--eh-gm-border)',
+    border: 'var(--border)',
   },
   light: {
     tile: 'var(--bg-1)',
     text: 'var(--fg-0)',
-    border: 'var(--eh-gm-border)',
+    border: 'var(--border)',
   }
 };
 
