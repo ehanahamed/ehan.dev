@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
 import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
-import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
+import LinkedinIcon from '../components/icons/Linkedin.astro';
 ---
 <style>
 .customgridlist {
@@ -42,14 +43,14 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
     }
 </style>
 <Layout>
-    <div class="grid page" style="margin-top: 0px; padding-top:3rem; padding-bottom:1rem;">
+    <div class="grid page" style="margin-top: 0px; padding-top:3rem; padding-bottom:0;">
         <div class="content">
             <p style="font-size: 1.6rem;">Hi, I'm</p>
             <h1 style="margin-top: 0px;">Ehan</h1>
         </div>
     </div>
     <!--<div class="wave-bottom extra-bg"></div>-->
-    <div class="grid page" style="background-color: var(--eh-bg--1); padding-top: 1rem; margin-bottom: 8rem;">
+    <div class="grid page" style="background-color: var(--eh-bg--1); padding-top: 3rem; padding-bottom: 8rem;">
         <div class="content">
             <div class="flex">
                 <div>
@@ -67,20 +68,29 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
                     </a>
                 </div>
                 <div>
-                    <p class="fg0" style="padding-left: 0.8rem;">Email:</p>
-                    <div style="margin-top: 0px; padding: 0.6rem 1rem;">
-                        ehan@ehan.dev
-                    </div>
+                    <p class="fg0" style="padding-left: 0.8rem;">LinkedIn:</p>
+                    <a class="button faint" style="margin-top: 0px;" href="https://linkedin.com/in/ehanahamed">
+                        <LinkedinIcon></LinkedinIcon>
+                        ehanahamed
+                    </a>
                 </div>
+                <!-- <div> -->
+                <!--     <p class="fg0" style="padding-left: 0.8rem;">Email:</p> -->
+                <!--     <div style="margin-top: 0px; padding: 0.6rem 1rem;"> -->
+                <!--         ehan@ehan.dev -->
+                <!--     </div> -->
+                <!-- </div> -->
             </div>
             <div>
-                <div class="trans-dots" style="--trans-dots-color: var(--eh-bg--1); position: sticky; top: 0; z-index: 10; height: 4rem; display: flex; flex-wrap: nowrap; align-items: center; padding-left: 1rem;">
-                    <h2 class="h4" style="margin: 0;">Projects</h2>
+                <!-- <div class="trans-dots" style="--trans-dots-color: var(--eh-bg--1); position: sticky; top: 0; z-index: 10; height: 4rem; display: flex; flex-wrap: nowrap; align-items: center; padding-left: 1rem;"> -->
+                <div style="height: 4rem; display: flex; flex-wrap: nowrap; align-items: center; padding-left: 1rem;">
+                    <h2 class="h4" style="margin: 0; opacity: 0.9;">Projects</h2>
                 </div>
-                <div style="position: relative; width: 100%; height: 40rem;">
+                <div style="position: relative; width: 100%; height: 30rem;">
                     <div style="position: absolute; z-index: 3; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-wrap: nowrap;">
                         <h2>Quizfreely</h2>
-                        <p>Free and open-source studying tool</p>
+                        <p style="font-size: 1.2rem;">Free and open-source studying tool</p>
+                        <p style="font-size: 1.2rem;">Used by 25,000+ students & teachers</p>
                     </div>
                     <div class="only-light-theme" style="position: absolute; z-index: 2; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--bg-0); opacity: 0.1;"></div>
                     <div style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0;">
@@ -88,10 +98,10 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
 </div>
                 </div>
             </div>
-            <div class="grid customgridlist">
-                <div class="box">
-                    <h3>Quizfreely</h3>
-                    <p>A free & open source studying tool</p>
+            <!-- <div class="grid customgridlist"> -->
+                <div class="box" style="width: 100%;">
+                    <!-- <h3>Quizfreely</h3> -->
+                    <!-- <p>A free & open source studying tool</p> -->
                     <div>
                         <p class="fg0" style="margin-bottom: 0px;">Website:</p>
                         <a href="https://quizfreely.org/"
@@ -112,30 +122,30 @@ import QzfrGridMotion from "../components/grid-motion/QuizfreelyGridMotion";
                         </div>
                     </div>
                 </div>
-                <div class="box">
-                    <h3>EhUI</h3>
-                    <p>Customizable and themeable UI kit</p>
-                    <div>
-                        <p class="fg0" style="margin-bottom: 0px;">Website:</p>
-                        <a href="https://ehan.dev/ehui"
-                            class="button alt no-box-shadow"
-                            style="margin-top: 0.2rem;"
-                        >ehan.dev/ehui</a>
-                    </div>
-                    <div>
-                        <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
-                        <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
-                            <a href="https://codeberg.org/ehanahamed/ehui"
-                                class="button faint"
-                            ><CodebergIcon></CodebergIcon> Codeberg</a>
-                            <a
-                                href="https://github.com/ehanahamed/ehui"
-                                class="button faint"
-                            ><GitHubIcon></GitHubIcon> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <!-- <div class="box"> -->
+                <!--     <h3>EhUI</h3> -->
+                <!--     <p>Customizable and themeable UI kit</p> -->
+                <!--     <div> -->
+                <!--         <p class="fg0" style="margin-bottom: 0px;">Website:</p> -->
+                <!--         <a href="https://ehan.dev/ehui" -->
+                <!--             class="button alt no-box-shadow" -->
+                <!--             style="margin-top: 0.2rem;" -->
+                <!--         >ehan.dev/ehui</a> -->
+                <!--     </div> -->
+                <!--     <div> -->
+                <!--         <p class="fg0" style="margin-bottom: 0px;">Source Code:</p> -->
+                <!--         <div class="flex compact-gap" style="margin-top: 0.2rem;">  -->
+                <!--             <a href="https://codeberg.org/ehanahamed/ehui" -->
+                <!--                 class="button faint" -->
+                <!--             ><CodebergIcon></CodebergIcon> Codeberg</a> -->
+                <!--             <a -->
+                <!--                 href="https://github.com/ehanahamed/ehui" -->
+                <!--                 class="button faint" -->
+                <!--             ><GitHubIcon></GitHubIcon> GitHub</a> -->
+                <!--         </div> -->
+                <!--     </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
         </div>
     </div>
 </Layout>
