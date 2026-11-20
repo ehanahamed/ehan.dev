@@ -6,6 +6,7 @@ import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import LinkedinIcon from '../components/icons/Linkedin.astro';
 import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
+import CtjsLogotype from '../assets/ct-js-logotype.svg';
 ---
 <style>
 .top-menu-link {
@@ -76,7 +77,7 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
 <Layout title="Ehan Ahamed">
     <div class="grid page" style="margin-top: 0px; padding-top:3rem; padding-bottom:0; position: relative; width: 100%;">
         <div class="content" style="z-index: 2; height: 10rem;">
-            <div style="height: 100%; display: flex; flex-direction: row; align-items: end; padding-bottom: 2rem;">
+            <div class="flex" style="height: 100%; flex-direction: row; align-items: end; padding-bottom: 2rem;">
                 <h1 style="margin-top: 0px;">Ehan A</h1>
             </div>
         </div>
@@ -191,8 +192,8 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
             <h2 class="h3" style="margin-top: 3rem; opacity: 0.9;">Open-Source Contributions</h2>
             <div class="grid customgridlist" id="contributions">
                 <div>
-                    <div class="customgridlist-item-top-optional" style="width: 100%;">
-                        Ct.js
+                    <div class="customgridlist-item-top-optional flex" style="min-height: 8rem; width: 100%; align-items: center; justify-content: center;">
+                        <CtjsLogotype height="5rem" />
                     </div>
                     <div class="box">
                         Ct.js
@@ -200,7 +201,7 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
                 </div>
                 <div>
                     <div class="customgridlist-item-top" style="position: relative; width: 100%; border-radius: 0.8rem;">
-                        <div style="position: absolute; z-index: 2; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                        <div class="flex" style="position: absolute; z-index: 2; inset: 0; align-items: center; justify-content: center; pointer-events: none;">
                             <div class="flex" style="align-items: center; gap: 1rem;">
                                 <img src={MITRacecarNeoLogo.src} alt="MIT Racecar Neo" style="width: 2.4rem; height: 2.4rem;" />
                                 <span style="font-size: 2rem; font-weight: bold;">MIT Racecar Neo</span>
