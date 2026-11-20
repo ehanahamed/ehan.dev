@@ -14,6 +14,7 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
     color: var(--fg-0);
     padding: 0.4rem 0.8rem;
     border-radius: 0.8rem;
+    font-size: 1.1rem;
 }
 .top-menu-link:hover {
     background-color: var(--bg-3ish);
@@ -114,11 +115,10 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
                 <!--     </div> -->
                 <!-- </div> -->
             </div>
-            <div>
-                <div class="trans-dots" style="--trans-dots-color: var(--eh-bg--1); position: sticky; top: 0; z-index: 10; height: 4rem; display: flex; align-items: center; padding-left: 1rem; gap: 0.4rem;">
-            <a class="top-menu-link current" href="#projects">Projects</a>
-<a class="top-menu-link" href="#contributions">Open-Source Contributions</a>
-            <a class="top-menu-link" href="#volunteer">Volunteer Roles</a>
+                <div class="trans-dots" style="--trans-dots-color: var(--eh-bg--1); position: sticky; top: 0; z-index: 10; height: 4rem; display: flex; align-items: center; padding-left: 1rem; gap: 0.6rem;">
+            <a class="top-menu-link current" id="menu-projects" href="#projects">Projects</a>
+            <a class="top-menu-link" id="menu-contributions" href="#contributions">Open-Source Contributions</a>
+            <a class="top-menu-link" id="menu-experience" href="#experience">Experience</a>
                 </div>
                 <div style="position: relative; width: 100%; height: 24rem;">
                     <div style="position: absolute; z-index: 3; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-wrap: nowrap;">
@@ -131,7 +131,6 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
                         <QzfrGridMotion client:load />
 </div>
                 </div>
-            </div>
             <!-- <div class="grid customgridlist"> -->
             <div class="box" style="width: 100%; margin-top: 0px;">
                     <!-- <h3>Quizfreely</h3> -->
@@ -258,3 +257,22 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
         </div>
     </div>
 </Layout>
+<script>
+    const menuItems = {
+        "projects": document.getElementById("menu-projects"),
+        "contributions": document.getElementById("menu-contributions"),
+        "experience": document.getElementById("menu-experience"),
+    };
+    const menuElements = Object.values(menuItems);
+    function menuSelect(item) {
+        menuElements.forEach(el => el.classList.remove("current"));
+        menuItems?.[item]?.classList?.add?.("current");
+    }
+    function hashChange() {
+        if (window.location.hash?.length > 1) {
+            menuSelect(window.location.hash.substring(1));
+        }
+    }
+    hashChange();
+    window.addEventListener("hashchange", hashChange);
+</script>
