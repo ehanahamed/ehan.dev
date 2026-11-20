@@ -1,16 +1,16 @@
-import sCombineLight from "../../assets/screenshots/quizfreely-720p/combine.webp";
-import sCombineDark from "../../assets/screenshots/quizfreely-720p/combine-dark.webp";
-import sCombineStatsLight from "../../assets/screenshots/quizfreely-720p/combine-stats.webp";
-import sCombineStatsDark from "../../assets/screenshots/quizfreely-720p/combine-stats-dark.webp";
-import sMatchLight from "../../assets/screenshots/quizfreely-720p/match.webp";
-import sMatchDark from "../../assets/screenshots/quizfreely-720p/match-dark.webp";
-import sMatchStartLight from "../../assets/screenshots/quizfreely-720p/match-start.webp";
-import sMatchStartDark from "../../assets/screenshots/quizfreely-720p/match-start-dark.webp";
-import sPTLight from "../../assets/screenshots/quizfreely-720p/practice-test.webp";
-import sPTDark from "../../assets/screenshots/quizfreely-720p/practice-test-dark.webp";
-import sStatsLight from "../../assets/screenshots/quizfreely-720p/stats.webp";
-import sStatsDark from "../../assets/screenshots/quizfreely-720p/stats-dark.webp";
-import GridMotion from "./GridMotion";
+import sCombineLight from "../assets/screenshots/quizfreely-720p/combine.webp";
+import sCombineDark from "../assets/screenshots/quizfreely-720p/combine-dark.webp";
+import sCombineStatsLight from "../assets/screenshots/quizfreely-720p/combine-stats.webp";
+import sCombineStatsDark from "../assets/screenshots/quizfreely-720p/combine-stats-dark.webp";
+import sMatchLight from "../assets/screenshots/quizfreely-720p/match.webp";
+import sMatchDark from "../assets/screenshots/quizfreely-720p/match-dark.webp";
+import sMatchStartLight from "../assets/screenshots/quizfreely-720p/match-start.webp";
+import sMatchStartDark from "../assets/screenshots/quizfreely-720p/match-start-dark.webp";
+import sPTLight from "../assets/screenshots/quizfreely-720p/practice-test.webp";
+import sPTDark from "../assets/screenshots/quizfreely-720p/practice-test-dark.webp";
+import sStatsLight from "../assets/screenshots/quizfreely-720p/stats.webp";
+import sStatsDark from "../assets/screenshots/quizfreely-720p/stats-dark.webp";
+import GridMotion from "./grid-motion/GridMotion.jsx";
 
 export default function QuizfreelyGridMotion() {
     return <GridMotion
@@ -40,18 +40,18 @@ export default function QuizfreelyGridMotion() {
                 <img src={sStatsDark.src} className="only-dark-theme" />
             </div>,
         ]}
-        rows={4}
+        rows={3}
         aspectRatio={16/9}
         gap={16}
         radius={14}
-        angle={-28}
-        tilt={50}
-        speed={30}
+        angle={-12}
+        tilt={30}
+        speed={24}
         direction="alternate"
         parallax={0}
         spotlight={0.1}
         dim={0.4}
-        fade={0.2}
+        fade={0.4}
         grayscale={false}
     />
 }
