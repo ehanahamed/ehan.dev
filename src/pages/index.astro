@@ -5,8 +5,9 @@ import Hyperspeed from "../components/hyperspeed/Hyperspeed.jsx";
 import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import LinkedinIcon from '../components/icons/Linkedin.astro';
-import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
+import QuizfreelyLogo from '../assets/quizfreely-logo.svg';
 import CtjsLogotype from '../assets/ct-js-logotype.svg';
+import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
 ---
 <style>
     .top-menu-link {
@@ -15,6 +16,7 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
         padding: 0.4rem 0.8rem;
         border-radius: 0.8rem;
         font-size: 1.1rem;
+        text-shadow: 0px 0px 10px var(--eh-bg--1);
     }
     .top-menu-link:hover {
         background-color: var(--bg-3ish);
@@ -36,16 +38,14 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
         gap: 1rem;
         grid-template-columns: 1fr 1fr;
     }
-    .customgridlist-item-top,
-    .customgridlist-item-top-optional {
-        height: 12rem;
-    }
     @media only screen and (max-width: 1000px) {
         .customgridlist {
             grid-template-columns: 1fr;
         }
-        .customgridlist-item-top-optional {
-            height: auto;
+    }
+    @media only screen and (max-width: 550px) {
+        #oss-contributions-txt {
+            display: none;
         }
     }
 </style>
@@ -123,44 +123,46 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
         <div class="content" style="height: 100%;">
             <div style="display: flex; height: 100%; align-items: center; padding-left: 1rem; gap: 0.6rem;">
                 <a class="top-menu-link current" id="menu-projects" href="#projects">Projects</a>
-                <a class="top-menu-link" id="menu-contributions" href="#contributions">Open-Source Contributions</a>
-                <a class="top-menu-link" id="menu-experience" href="#experience">Experience</a>
+                <a class="top-menu-link" id="menu-contributions" href="#contributions"><span id="oss-contributions-txt">Open-Source</span> Contributions</a>
+                <a class="top-menu-link" id="menu-about" href="#about">About</a>
             </div>
         </div>
     </div>
     <div class="grid page eh-content-on-bg--1" style="background-color: var(--eh-bg--1); margin-top: 0; padding-bottom: 8rem;">
         <div class="content">
-            <div style="position: relative; width: 100%; height: 24rem;">
-                <div style="position: absolute; z-index: 3; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-wrap: nowrap;">
-                    <h2 id="projects">Quizfreely</h2>
-                    <p style="font-size: 1.2rem;">Free and open-source studying tool</p>
-                    <p style="font-size: 1.2rem;">Used by 25,000+ students & teachers</p>
+            <div id="projects">
+                <div style="position: relative; width: 100%; height: 24rem;">
+                    <div class="flex" style="position: absolute; z-index: 3; top: 0; left: 0; right: 0; bottom: 0; align-items: center; justify-content: center; flex-wrap: nowrap; pointer-events: none;">
+                        <QuizfreelyLogo height="4rem" />
+                        <span style="font-size: 2rem; font-weight: bold; text-shadow: 0px 0px 10px var(--eh-bg--1); pointer-events: auto;">Quizfreely</span>
+                        <!-- <p style="font-size: 1.2rem;">Free and open-source studying tool</p> -->
+                        <!-- <p style="font-size: 1.2rem;">Used by 25,000+ students & teachers</p> -->
+                    </div>
+                    <div style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0;">
+                            <QzfrGridMotion client:load />
+                    </div>
                 </div>
-                <div class="only-light-theme" style="position: absolute; z-index: 2; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--bg-0); opacity: 0.1;"></div>
-                <div style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0;">
-                        <QzfrGridMotion client:load />
-                </div>
-            </div>
-            <div class="box" style="width: 100%; margin-top: 0px;">
-                <!-- <h3>Quizfreely</h3> -->
-                <!-- <p>A free & open source studying tool</p> -->
-                <div>
-                    <p class="fg0" style="margin-bottom: 0px;">Website:</p>
-                    <a href="https://quizfreely.org/"
-                        class="button alt no-box-shadow"
-                        style="margin-top: 0.2rem; --bg-2: var(--bg-1);"
-                    >quizfreely.org</a>
-                </div>
-                <div>
-                    <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
-                    <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
-                        <a href="https://codeberg.org/quizfreely/quizfreely"
-                            class="button faint"
-                        ><CodebergIcon></CodebergIcon> Codeberg</a>
-                        <a
-                            href="https://github.com/quizfreely/quizfreely"
-                            class="button faint"
-                        ><GitHubIcon></GitHubIcon> GitHub</a>
+                <div class="box" style="width: 100%; margin-top: 0px;">
+                    <!-- <h3>Quizfreely</h3> -->
+                    <!-- <p>A free & open source studying tool</p> -->
+                    <div>
+                        <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+                        <a href="https://quizfreely.org/"
+                            class="button alt no-box-shadow"
+                            style="margin-top: 0.2rem; --bg-2: var(--bg-1);"
+                        >quizfreely.org</a>
+                    </div>
+                    <div>
+                        <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+                        <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
+                            <a href="https://codeberg.org/quizfreely/quizfreely"
+                                class="button faint"
+                            ><CodebergIcon></CodebergIcon> Codeberg</a>
+                            <a
+                                href="https://github.com/quizfreely/quizfreely"
+                                class="button faint"
+                            ><GitHubIcon></GitHubIcon> GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -188,91 +190,117 @@ import CtjsLogotype from '../assets/ct-js-logotype.svg';
             <!--     </div> -->
             <!-- </div> -->
             <!-- </div> -->
-            <h2 class="h3" style="margin-top: 3rem; opacity: 0.9;">Open-Source Contributions</h2>
-            <div class="grid customgridlist" id="contributions">
-                <div>
-                    <div class="customgridlist-item-top-optional flex" style="min-height: 8rem; width: 100%; align-items: center; justify-content: center;">
-                        <CtjsLogotype height="5rem" />
-                    </div>
-                    <div class="box">
-                        Ct.js
-                    </div>
-                </div>
-                <div>
-                    <div class="customgridlist-item-top" style="position: relative; width: 100%; border-radius: 0.8rem;">
-                        <div class="flex" style="position: absolute; z-index: 2; inset: 0; align-items: center; justify-content: center; pointer-events: none;">
-                            <div class="flex" style="align-items: center; gap: 1rem;">
-                                <img src={MITRacecarNeoLogo.src} alt="MIT Racecar Neo" style="width: 2.4rem; height: 2.4rem;" />
-                                <span style="font-size: 2rem; font-weight: bold;">MIT Racecar Neo</span>
-                            </div>
+            <div id="contributions">
+                <h2 class="h3" style="margin-top: 3rem; opacity: 0.9;">Open-Source Contributions</h2>
+                <div class="grid customgridlist">
+                    <div>
+                        <div class="flex" style="height: 12rem; width: 100%; align-items: center; justify-content: center;">
+                            <CtjsLogotype height="5rem" style="filter: drop-shadow(0px 0px 10px var(--eh-bg--1));" />
                         </div>
-                        <Hyperspeed
-                            client:load
-                            curve="winding"
-                            curvature={1}
-                            speed={1}
-                            boost={3}
-                            fov={90}
-                            boostFov={130}
-                            lanes={3}
-                            roadWidth={10}
-                            medianWidth={2}
-                            density={40}
-                            trailLength={1}
-                            lightSize={1}
-                            poles={20}
-                            dust={100}
-                            glow={0.6}
-                            reflections={0.5}
-                            roadOpacity={0.1}
-                            steer={0.35}
-                            tailColors={["#d856bf","#6750a2","#c247ac"]}
-                            headColors={["#03b3c3","#0e5ea5","#324555"]}
-                            poleColors={["#03b3c3"]}
-                            interactive
-                            roadColor="#08080a"
-                            lineColor="#25252d"
-                        />
+                        <div class="box">
+                            Ct.js
+                        </div>
+                    </div>
+                    <div>
+                        <div style="position: relative; height: 12rem; width: 100%; border-radius: 0.8rem;">
+                            <div class="flex" style="position: absolute; z-index: 2; inset: 0; align-items: center; justify-content: center; pointer-events: none;">
+                                <div class="flex" style="align-items: center; gap: 1rem; flex-wrap: nowrap;">
+                                    <img src={MITRacecarNeoLogo.src} alt="MIT Racecar Neo" style="width: 2.4rem; height: 2.4rem;" />
+                                    <span style="font-size: 2rem; font-weight: bold; text-shadow: 0px 0px 10px var(--eh-bg--1); pointer-events: auto;">MIT Racecar Neo</span>
+                                </div>
+                            </div>
+                            <Hyperspeed
+                                client:load
+                                curve="winding"
+                                curvature={1}
+                                speed={1}
+                                boost={3}
+                                fov={90}
+                                boostFov={130}
+                                lanes={3}
+                                roadWidth={10}
+                                medianWidth={2}
+                                density={40}
+                                trailLength={1}
+                                lightSize={1}
+                                poles={20}
+                                dust={100}
+                                glow={0.6}
+                                reflections={0.5}
+                                roadOpacity={0.1}
+                                steer={0.35}
+                                tailColors={["#d856bf","#6750a2","#c247ac"]}
+                                headColors={["#03b3c3","#0e5ea5","#324555"]}
+                                poleColors={["#03b3c3"]}
+                                interactive
+                                roadColor="#08080a"
+                                lineColor="#25252d"
+                            />
+                        </div>
+                        <div class="box">
+                            MIT RACECAR Neo
+                        </div>
                     </div>
                     <div class="box">
-                        MIT Racecar Neo
+                        Hack Club HCB
                     </div>
                 </div>
-                <div class="box">
-                    Hack Club HCB
-                </div>
-            </div>
-            <div class="flex" style="align-items: center; flex-direction: column; justify-content: center; flex-wrap: nowrap;">
-                <p>And more contributions, view all details on Codeberg or GitHub</p>
-                <div class="flex">
-                    <a href="https://codeberg.org/ehanahamed"
-                        class="button faint"
-                    ><CodebergIcon></CodebergIcon> Codeberg</a>
-                    <a
-                        href="https://github.com/ehanahamed"
-                        class="button faint"
-                    ><GitHubIcon></GitHubIcon> GitHub</a>
+                <div class="flex" style="align-items: center; flex-direction: column; justify-content: center; flex-wrap: nowrap;">
+                    <p>And more contributions, view all details on Codeberg or GitHub</p>
+                    <div class="flex">
+                        <a href="https://codeberg.org/ehanahamed"
+                            class="button faint"
+                        ><CodebergIcon></CodebergIcon> Codeberg</a>
+                        <a
+                            href="https://github.com/ehanahamed"
+                            class="button faint"
+                        ><GitHubIcon></GitHubIcon> GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </Layout>
 <script>
-    const menuItems = {
-        "projects": document.getElementById("menu-projects"),
-        "contributions": document.getElementById("menu-contributions"),
-        "experience": document.getElementById("menu-experience"),
-    };
-    const menuElements = Object.values(menuItems);
-    function menuSelect(item) {
-        menuElements.forEach(el => el.classList.remove("current"));
-        menuItems?.[item]?.classList?.add?.("current");
+    const menuItems = new Map([
+        ['projects', document.getElementById('menu-projects')],
+        ['contributions', document.getElementById('menu-contributions')],
+        ['about', document.getElementById('menu-about')],
+    ]);
+    function menuSelect(selected) {
+        const item = menuItems.get(selected);
+        if (item == null) {
+            return;
+        }
+        menuItems.forEach(el => el.classList.remove('current'));
+        item.classList?.add?.('current');
     }
-    function hashChange() {
+    function hashUpdate() {
         if (window.location.hash?.length > 1) {
             menuSelect(window.location.hash.substring(1));
         }
     }
-    hashChange();
-    window.addEventListener("hashchange", hashChange);
+    hashUpdate();
+    window.addEventListener('hashchange', hashUpdate);
+
+    const sections = [
+        document.getElementById("projects"),
+        document.getElementById("contributions"),
+        document.getElementById("about"),
+    ];
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting && entry?.target?.id != null) {
+            menuSelect(entry.target.id);
+        //     console.log(`intersecting ${entry}`)
+        // } else {
+        //     console.log(`NOT intersecting ${entry}`)
+        }
+    }), {
+        rootMargin: '0px 0px -80% 0px',
+    });
+    sections.forEach(el => {
+        if (el != null) {
+            observer.observe(el);
+        }
+    });
 </script>
