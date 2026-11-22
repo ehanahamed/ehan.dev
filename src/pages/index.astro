@@ -8,6 +8,8 @@ import LinkedinIcon from '../components/icons/Linkedin.astro';
 import QuizfreelyLogo from '../assets/quizfreely-logo.svg';
 import CtjsLogotype from '../assets/ct-js-logotype.svg';
 import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
+import LightSunIcon from '../components/icons/LightSun.astro';
+import DarkMoonIcon from '../components/icons/DarkMoon.astro';
 ---
 <style>
     .top-menu-link {
@@ -57,11 +59,21 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
         background-color: var(--eh-bg--1);
     }
     .only-light-theme,
-    .grid-motion__tile img.only-light-theme {
+    .grid-motion__tile img.only-light-theme,
+    .theme-dark only-dark-theme, 
+    .theme-dark .grid-motion__tile img.only-dark-theme {
         display: block;
     }
+    .only-light-theme.flex,
+    .theme-dark .only-dark-theme.flex {
+        display: flex;
+    }
     .only-dark-theme,
-    .grid-motion__tile img.only-dark-theme {
+    .only-dark-theme.flex,
+    .grid-motion__tile img.only-dark-theme,
+    .theme-dark .only-light-theme,
+    .theme-dark .only-light-theme.flex,
+    .theme-dark .grid-motion__tile img.only-light-theme {
         display: none;
     }
     @media (prefers-color-scheme: dark) {
@@ -69,17 +81,37 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
             --eh-bg--1: var(--bg-0);
         }
         .only-light-theme,
-        .grid-motion__tile img.only-light-theme {
+        .only-light-theme.flex,
+        .grid-motion__tile img.only-light-theme,
+        .theme-light .only-dark-theme,
+        .theme-light .only-dark-theme.flex,
+        .theme-light .grid-motion__tile img.only-dark-theme {
             display: none;
         }
         .only-dark-theme,
-        .grid-motion__tile img.only-dark-theme {
+        .grid-motion__tile img.only-dark-theme,
+        .theme-light .only-light-theme,
+        .theme-light .grid-motion__tile img.only-light-theme {
             display: block;
+        }
+        .only-dark-theme.flex,
+        .theme-light .only-light-theme.flex {
+            display: flex;
         }
     }
 </style>
 <Layout title="Ehan Ahamed">
-    <div class="grid page" style="margin-top: 0px; padding-top:3rem; padding-bottom:0; position: relative; width: 100%; background-color: var(--bg-1);">
+    <div class="flex" style="align-items: center; justify-content: end; padding: 1rem; background-color: var(--bg-1);">
+        <div class="flex only-light-theme" style="flex-direction: column; gap: 0; align-items: center;">
+            <button class="icon-only-button" style="padding: 0.8rem;" id="to-dark-theme"><DarkMoonIcon width="1.4rem" height="1.4rem" /></button>
+            <p class="fg0" style="font-size: 0.8rem;">Light / Dark</p>
+        </div>
+        <div class="flex only-dark-theme" style="flex-direction: column; gap: 0; align-items: center;">
+            <button class="icon-only-button" style="padding: 0.8rem;" id="to-light-theme"><LightSunIcon width="1.4rem" height="1.4rem" /></button>
+            <p class="fg0" style="font-size: 0.8rem;">Light / Dark</p>
+        </div>
+    </div>
+    <div class="grid page" style="margin-top: 0px; padding-top:1rem; padding-bottom:0; position: relative; width: 100%; background-color: var(--bg-1);">
         <div class="content" style="z-index: 2; height: 10rem;">
             <div class="flex" style="height: 100%; flex-direction: row; align-items: end; padding-bottom: 2rem;">
                 <h1 style="margin-top: 0px;">Ehan A</h1>
@@ -315,6 +347,22 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
     sections.forEach(el => {
         if (el != null) {
             observer.observe(el);
+        }
+    });
+</script>
+<script>
+    document.getElementById("to-dark-theme").addEventListener("click", () => {
+        document.documentElement.classList.remove("theme-light");
+        document.documentElement.classList.add("theme-dark");
+        if (window.localStorage) {
+            localStorage.setItem("eh:theme", "dark");
+        }
+    });
+    document.getElementById("to-light-theme").addEventListener("click", () => {
+        document.documentElement.classList.remove("theme-dark");
+        document.documentElement.classList.add("theme-light");
+        if (window.localStorage) {
+            localStorage.setItem("eh:theme", "light");
         }
     });
 </script>
