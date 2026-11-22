@@ -154,9 +154,9 @@ import DarkMoonIcon from '../components/icons/DarkMoon.astro';
     <div class="grid page trans-dots" style="--trans-dots-color: var(--eh-bg--1); margin-top: 0; position: sticky; top: 0; z-index: 10; height: 4rem;">
         <div class="content" style="height: 100%;">
             <div style="display: flex; height: 100%; align-items: center; padding-left: 1rem; gap: 0.6rem;">
-                <a class="top-menu-link current" id="menu-projects" href="#projects">Projects</a>
-                <a class="top-menu-link" id="menu-contributions" href="#contributions"><span id="oss-contributions-txt">Open-Source</span> Contributions</a>
-                <a class="top-menu-link" id="menu-about" href="#about">About</a>
+                <a class="top-menu-link current" id="menu-projects" href="#projects" data-eh-section="projects">Projects</a>
+                <a class="top-menu-link" id="menu-contributions" href="#contributions" data-eh-section="contributions"><span id="oss-contributions-txt">Open-Source</span> Contributions</a>
+                <a class="top-menu-link" id="menu-about" href="#about" data-eh-section="about">About</a>
             </div>
         </div>
     </div>
@@ -318,11 +318,29 @@ import DarkMoonIcon from '../components/icons/DarkMoon.astro';
     hashUpdate();
     window.addEventListener('hashchange', hashUpdate);
 
-    const sections = [
-        document.getElementById("projects"),
-        document.getElementById("contributions"),
-        document.getElementById("about"),
-    ];
+    const sections = new Map([
+        ["projects", document.getElementById("projects")],
+        ["contributions", document.getElementById("contributions")],
+        ["about", document.getElementById("about")],
+    ]);
+    menuItems.forEach(el => el.addEventListener("click", ev => {
+        if (window.location.hash?.length > 1 ||
+            !(ev.currentTarget.dataset?.ehSection?.length > 0) ||
+            ev.button !== 0 || ev.ctrlKey || ev.shiftKey || ev.metaKey
+        ) {
+            return;
+        }
+        const section = sections.get(ev.currentTarget.dataset.ehSection);
+        if (section == null) {
+            return;
+        }
+        ev.preventDefault();
+        section.scrollIntoView?.({
+            behavior: "smooth",
+            block: "start",
+        });
+    }));
+
     const intersecting = new Map([
         ["projects", false],
         ["contributions", false],
@@ -332,7 +350,6 @@ import DarkMoonIcon from '../components/icons/DarkMoon.astro';
         entries => entries.forEach(entry => {
             if (entry?.target?.id != null) {
                 intersecting.set(entry.target.id, entry.isIntersecting)
-                console.log(intersecting)
                 if (intersecting.get("about")) {
                     menuSelect("about");
                 } else if (intersecting.get("contributions")) {
