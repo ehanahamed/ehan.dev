@@ -258,6 +258,9 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
                     </div>
                 </div>
             </div>
+            <div id="about">
+                ich komme aus munchen
+            </div>
         </div>
     </div>
 </Layout>
@@ -288,16 +291,27 @@ import MITRacecarNeoLogo from '../assets/mit-racecar-neo-logo.png';
         document.getElementById("contributions"),
         document.getElementById("about"),
     ];
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-        if (entry.isIntersecting && entry?.target?.id != null) {
-            menuSelect(entry.target.id);
-        //     console.log(`intersecting ${entry}`)
-        // } else {
-        //     console.log(`NOT intersecting ${entry}`)
-        }
-    }), {
-        rootMargin: '0px 0px -80% 0px',
-    });
+    const intersecting = new Map([
+        ["projects", false],
+        ["contributions", false],
+        ["about", false],
+    ]);
+    const observer = new IntersectionObserver(
+        entries => entries.forEach(entry => {
+            if (entry?.target?.id != null) {
+                intersecting.set(entry.target.id, entry.isIntersecting)
+                console.log(intersecting)
+                if (intersecting.get("about")) {
+                    menuSelect("about");
+                } else if (intersecting.get("contributions")) {
+                    menuSelect("contributions");
+                } else {
+                    menuSelect("projects");
+                }
+            }
+        }),
+        { rootMargin: '0px 0px -80% 0px' }
+    );
     sections.forEach(el => {
         if (el != null) {
             observer.observe(el);
