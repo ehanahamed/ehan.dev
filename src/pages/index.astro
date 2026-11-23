@@ -220,7 +220,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
                                 <QzfrGridMotion client:load />
                         </div>
                     </div>
-                    <div class="qzfr-grid-content flex" style="width: 100%; margin-top: 0px; padding: 0.8rem; flex-direction: column; flex-wrap: nowrap; align-items: start; justify-content: space-between; gap: 2rem;">
+                    <div class="qzfr-grid-content flex" style="width: 100%; margin-top: 0px; padding: 0.8rem; flex-direction: column; flex-wrap: nowrap; align-items: start; justify-content: space-between; gap: 3rem;">
                         <div>
                             <h2 style="font-size: 1.6rem; opacity: 0.9;">Quizfreely</h2>
                             <p>Built a free and open-source studying tool</p>
@@ -228,16 +228,15 @@ import GlobeIcon from '../components/icons/Globe.astro';
                             <p style="margin-top: 0.6rem;">Made all my code public/open-source so others can build upon and contribute to it</p>
                             <p style="margin-top: 0.6rem;">Non-profit 501(c)(3) status, fiscally sponsored by Hack Club</p>
                         </div>
-                        <!-- <div> -->
-                        <!--     <p class="fg0" style="margin-bottom: 0px;">Website:</p> -->
-                        <!--     <a href="https://quizfreely.org/" -->
-                        <!--         class="button alt" -->
-                        <!--         style="margin-top: 0.4rem;" -->
-                        <!--     >quizfreely.org</a> -->
-                        <!-- </div> -->
-                        <div>
-                            <p><span class="fg0">Website:</span><span class="line" style="margin-top: 0.4rem;"><a href="https://quizfreely.org" style="font-size: 1.1rem;">quizfreely.org</a></span></p>
-                            <div style="margin-top: 1.2rem;">
+                        <div class="flex" style="flex-wrap: wrap; row-gap: 1rem; column-gap: 4rem;">
+                            <div>
+                                <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+                                <a href="https://quizfreely.org/"
+                                    class="button alt"
+                                    style="margin-top: 0.4rem;"
+                                >quizfreely.org</a>
+                            </div>
+                            <div>
                                 <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
                                 <div class="flex" style="margin-top: 0.4rem; gap: 0.6rem;"> 
                                     <a href="https://codeberg.org/quizfreely/quizfreely"
@@ -285,7 +284,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
                             <CtjsLogotype height="5rem" style="filter: drop-shadow(0px 0px 4px #ffffff);" />
                         </div>
                             <div class="flex" style="align-items: start; flex-wrap: wrap; justify-content: space-between;">
-                                <p><span class="fg0" style="font-size: 0.9rem;">Contributed to</span> <span class="line" style="font-size: 1.1rem;">ct.js</span></p>
+                                <p><span class="fg0" style="font-size: 0.9rem;">Contributed to</span> <span class="line" style="font-size: 1.1rem;">Ct.js</span></p>
                                 <div class="flex" style="align-items: center; justify-content: start; gap: 0.6rem;">
                                     <a class="button alt" href="https://ctjs.rocks"><GlobeIcon style="opacity: 0.9;" /> ctjs.rocks</a>
                                     <a class="button alt text fg1" href="https://github.com/ct-js/ct-js"><GitHubIcon /> Source Code</a>
@@ -339,7 +338,13 @@ import GlobeIcon from '../components/icons/Globe.astro';
                         </div>
                     </div>
                     <div class="box">
-                        Hack Club HCB
+                        <div class="flex" style="align-items: start; flex-wrap: wrap; justify-content: space-between;">
+                            <p><span class="fg0" style="font-size: 0.9rem;">Contributed to</span> <span class="line" style="font-size: 1.1rem;">Hack Club HCB</span></p>
+                            <div class="flex" style="align-items: center; justify-content: start; gap: 0.6rem;">
+                                <a class="button alt" href="https://hackclub.com/hcb"><GlobeIcon style="opacity: 0.9;" /> <span style="margin-top: 0;">hackclub.com<span style="opacity: 0.8;">/hcb</span></span></a>
+                                <a class="button alt text fg1" href="https://github.com/hackclub/hcb"><GitHubIcon /> Source Code</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="flex" style="align-items: center; flex-direction: column; justify-content: center; flex-wrap: nowrap;">
