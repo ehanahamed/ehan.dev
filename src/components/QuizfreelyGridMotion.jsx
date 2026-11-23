@@ -50,8 +50,8 @@ export default function QuizfreelyGridMotion() {
         direction="alternate"
         parallax={0}
         spotlight={0.1}
-        dim={0.4}
-        fade={0.4}
+        dim={0.3}
+        fade={0}
         grayscale={false}
     />
 }
