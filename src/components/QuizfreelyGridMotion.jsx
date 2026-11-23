@@ -49,8 +49,8 @@ export default function QuizfreelyGridMotion() {
         speed={24}
         direction="alternate"
         parallax={0}
-        spotlight={0.1}
-        dim={0.3}
+        spotlight={0}
+        dim={0.4}
         fade={0}
         grayscale={false}
     />

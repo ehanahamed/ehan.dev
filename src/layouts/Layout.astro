@@ -9,19 +9,19 @@ const { title } = Astro.props;
     <title>{title ?? "ehan.dev"}</title>
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/immutable/css-20261112/ehui.min.css" />
-    <link rel="stylesheet" href="/immutable/themes-20261112/auto-light-dark.min.css" />
-    <link rel="stylesheet" href="/extraCustomStyles.css" />
-    <script>
-        if (window.localStorage) {
+    <script is:inline>
+        try {
             const theme = localStorage.getItem("eh:theme");
             if (theme === "dark") {
                 document.documentElement.classList.add("theme-dark");
             } else if (theme === "light") {
                 document.documentElement.classList.add("theme-light");
             }
-        }
+        } catch (err) {}
     </script>
+    <link rel="stylesheet" href="/immutable/css-20261112/ehui.min.css" />
+    <link rel="stylesheet" href="/immutable/themes-20261112/auto-light-dark.min.css" />
+    <link rel="stylesheet" href="/extraCustomStyles.css" />
 	<script defer src="https://srv.ehan.dev/umami/script.js" data-website-id="fc5d8bdb-8e64-497c-9496-108b12e1242c"></script>
   </head>
     <body style="margin-top: 0px; padding-top: 0px;">
