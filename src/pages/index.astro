@@ -301,7 +301,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
             <!--     </div> -->
             <!-- </div> -->
             <!-- </div> -->
-            <div id="contributions" style="scroll-margin-block-start: 5rem;">
+            <div id="contributions" style="scroll-margin-block-start: 5rem; min-height: 100vh;">
                 <h2 class="h3" style="margin: 3rem 0 2rem 0; opacity: 0.9;">Open-Source Contributions</h2>
                 <div class="grid customgridlist">
                     <div class="box">
@@ -404,7 +404,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
         if (item == null) {
             return;
         }
-        menuItems.forEach(el => el.classList.remove('current'));
+        menuItems.forEach(el => el?.classList?.remove?.('current'));
         item.classList?.add?.('current');
     }
     function hashUpdate() {
@@ -420,7 +420,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
         ["contributions", document.getElementById("contributions")],
         ["about", document.getElementById("about")],
     ]);
-    menuItems.forEach(el => el.addEventListener("click", ev => {
+    menuItems.forEach(el => el?.addEventListener?.("click", ev => {
         if (window.location.hash?.length > 1 ||
             !(ev.currentTarget.dataset?.ehSection?.length > 0) ||
             ev.button !== 0 || ev.ctrlKey || ev.shiftKey || ev.metaKey
