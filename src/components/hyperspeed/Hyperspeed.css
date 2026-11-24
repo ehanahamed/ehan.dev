@@ -1,12 +1,12 @@
 .hyperspeed {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  overflow: clip;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   user-select: none;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
 }
 
 .hyperspeed canvas {

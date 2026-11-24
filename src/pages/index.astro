@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import QzfrGridMotion from "../components/QuizfreelyGridMotion.jsx";
+import CtjsGridMotion from "../components/CtjsGridMotion.jsx";
 import Hyperspeed from "../components/hyperspeed/Hyperspeed.jsx";
 import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
@@ -152,6 +153,25 @@ import GlobeIcon from '../components/icons/Globe.astro';
             display: block;
         }
     }
+    #trans-dots-backlight-ct,
+    #trans-dots-backlight-racecar {
+        opacity: 0;
+        margin-top: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9;
+        height: 4rem;
+        background-color: var(--eh-bg--1);
+        transition: opacity 0.3s ease-in;
+    }
+    #trans-dots-backlight-ct.eh-backlight-active {
+        opacity: 0.7;
+    }
+    #trans-dots-backlight-racecar.eh-backlight-active {
+        opacity: 0.8;
+    }
 </style>
 <Layout title="Ehan Ahamed">
     <div class="flex" style="align-items: center; justify-content: end; padding: 2rem 2rem 0 0; background-color: var(--bg-1);">
@@ -225,11 +245,11 @@ import GlobeIcon from '../components/icons/Globe.astro';
     <!-- trans-dots-backlight-ct shows underneath trans-dots header in DARK MODE when ct.js art intersects header,
     because trans-dots becomes unreadable above fully white ct.js bg.
     opacity controlled by JS when intersecting, light/dark theme visibility controlled by CSS -->
-    <div id="trans-dots-backlight-ct" class="only-dark-theme" style="margin-top: 0; position: fixed; top: 0; left: 0; right: 0; z-index: 9; height: 4rem; background-color: var(--eh-bg--1); transition: 0.1 opacity ease; opacity: 0;"></div>
+    <div id="trans-dots-backlight-ct" class="only-dark-theme"></div>
     <!-- trans-dots-backlight-racecar shows underneath trans-dots header in LIGHT MODE when MIT RACECAR Neo art intersects header,
     because trans-dots becomes unreadable above fully black racecar bg.
     opacity controlled by JS when intersecting, light/dark theme visibility controlled by CSS -->
-    <div id="trans-dots-backlight-racecar" class="only-light-theme" style="margin-top: 0; position: fixed; top: 0; left: 0; right: 0; z-index: 9; height: 4rem; background-color: var(--eh-bg--1); transition: 0.1 opacity ease; opacity: 0;"></div>
+    <div id="trans-dots-backlight-racecar" class="only-light-theme"></div>
     <div class="grid page eh-content-on-bg--1" style="background-color: var(--eh-bg--1); margin-top: 0; padding-bottom: 8rem;">
         <div class="content">
             <div id="projects" style="scroll-margin-block-start: 5rem;">
@@ -241,7 +261,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
                             <!-- <p style="font-size: 1.2rem;">Free and open-source studying tool</p> -->
                             <!-- <p style="font-size: 1.2rem;">Used by 25,000+ students & teachers</p> -->
                         </div>
-                        <div class="no-child-margin-top" style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin-top: 0; border-radius: 1rem;">
+                        <div class="no-child-margin-top" style="position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin-top: 0; border-radius: 1rem; overflow: clip;">
                                 <QzfrGridMotion client:load />
                         </div>
                     </div>
@@ -306,8 +326,11 @@ import GlobeIcon from '../components/icons/Globe.astro';
                 <div class="grid customgridlist">
                     <div class="box">
                         <div id="ct-art" style="border-radius: 1rem; background-color: var(--ct-bg); position: relative; height: 12rem;">
-                            <div class="flex" style="height: 12rem; width: 100%; align-items: center; justify-content: center;">
-                                <CtjsLogotype height="5rem" style="filter: drop-shadow(0px 0px 4px #ffffff);" />
+                            <div class="flex" style="position: absolute; inset: 0; z-index: 3; align-items: center; justify-content: center;">
+                                <CtjsLogotype height="5rem" style="filter: drop-shadow(0px 0px 4px var(--ct-bg));" />
+                            </div>
+                            <div class="no-child-margin-top" style="position: absolute; inset: 0; z-index: 2; margin-top: 0; border-radius: 1rem; overflow: clip;">
+                                <CtjsGridMotion client:load />
                             </div>
                         </div>
                             <div class="flex" style="align-items: start; flex-wrap: wrap; justify-content: space-between;">
@@ -486,9 +509,9 @@ import GlobeIcon from '../components/icons/Globe.astro';
     const observer = new IntersectionObserver(
         entries => entries.forEach(entry => {
             if (entry?.target?.id == "ct-art") {
-                backlightCt.style.opacity = entry.isIntersecting ? "0.7" : "0";
+                backlightCt.classList.toggle("eh-backlight-active", entry.isIntersecting);
             } else if (entry?.target?.id == "racecar-art") {
-                backlightRacecar.style.opacity = entry.isIntersecting ? "0.7" : "0";
+                backlightRacecar.classList.toggle("eh-backlight-active", entry.isIntersecting);
             }
         }),
         { rootMargin: '0px 0px -90% 0px' }
