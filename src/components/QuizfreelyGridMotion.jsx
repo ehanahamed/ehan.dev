@@ -26,12 +26,12 @@ export default function QuizfreelyGridMotion() {
                 <img src={sMatchStartDark.src} className="only-dark-theme" />
             </div>,
             <div>
-                <img src={sPTLight.src} className="only-light-theme" />
-                <img src={sPTDark.src} className="only-dark-theme" />
-            </div>,
-            <div>
                 <img src={sStatsLight.src} className="only-light-theme" />
                 <img src={sStatsDark.src} className="only-dark-theme" />
+            </div>,
+            <div>
+                <img src={sPTLight.src} className="only-light-theme" />
+                <img src={sPTDark.src} className="only-dark-theme" />
             </div>,
         ]}
         rows={3}
