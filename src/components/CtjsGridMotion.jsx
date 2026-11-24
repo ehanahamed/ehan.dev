@@ -1,5 +1,4 @@
 import sCode from "../assets/screenshots/ct-js-720p/code-editor.webp";
-import sFont from "../assets/screenshots/ct-js-720p/font-viewer.webp";
 import sParticle from "../assets/screenshots/ct-js-720p/particle-systems.webp";
 import sRoom from "../assets/screenshots/ct-js-720p/room-editor.webp";
 import sTexture from "../assets/screenshots/ct-js-720p/texture-editor.webp";
@@ -8,7 +7,7 @@ import GridMotion from "./grid-motion/GridMotion.jsx";
 export default function QuizfreelyGridMotion() {
     return <GridMotion
         items={[
-            sCode, sRoom, sParticle, sFont, sTexture,
+            sCode, sRoom, sParticle, sTexture,
         ]}
         rows={2}
         aspectRatio={64/33}

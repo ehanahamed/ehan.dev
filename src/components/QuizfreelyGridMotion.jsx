@@ -1,7 +1,5 @@
 import sCombineLight from "../assets/screenshots/quizfreely-720p/combine.webp";
 import sCombineDark from "../assets/screenshots/quizfreely-720p/combine-dark.webp";
-import sCombineStatsLight from "../assets/screenshots/quizfreely-720p/combine-stats.webp";
-import sCombineStatsDark from "../assets/screenshots/quizfreely-720p/combine-stats-dark.webp";
 import sMatchLight from "../assets/screenshots/quizfreely-720p/match.webp";
 import sMatchDark from "../assets/screenshots/quizfreely-720p/match-dark.webp";
 import sMatchStartLight from "../assets/screenshots/quizfreely-720p/match-start.webp";
@@ -18,10 +16,6 @@ export default function QuizfreelyGridMotion() {
             <div>
                 <img src={sCombineLight.src} className="only-light-theme" />
                 <img src={sCombineDark.src} className="only-dark-theme" />
-            </div>,
-            <div>
-                <img src={sCombineStatsLight.src} className="only-light-theme" />
-                <img src={sCombineStatsDark.src} className="only-dark-theme" />
             </div>,
             <div>
                 <img src={sMatchLight.src} className="only-light-theme" />
