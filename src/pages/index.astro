@@ -92,15 +92,19 @@ import GlobeIcon from '../components/icons/Globe.astro';
         --racecar-fg-theme-dark: var(--fg-1);
         --racecar-bg-theme-light: #101217;
         --racecar-fg-theme-light: #f9f9f9;
+        --ct-bg-light: var(--eh-bg--1-theme-light);
+        --ct-bg-dark: #ddd;
 
         --eh-bg--1: var(--eh-bg--1-theme-light);
         --racecar-bg: var(--racecar-bg-theme-light);
         --racecar-fg: var(--racecar-fg-theme-light);
+        --ct-bg: var(--ct-bg-light);
     }
     :root.theme-dark {
         --eh-bg--1: var(--eh-bg--1-theme-dark);
         --racecar-bg: var(--racecar-bg-theme-dark);
         --racecar-fg: var(--racecar-fg-theme-dark);
+        --ct-bg: var(--ct-bg-dark);
     }
     body {
         background-color: var(--eh-bg--1);
@@ -122,11 +126,13 @@ import GlobeIcon from '../components/icons/Globe.astro';
             --eh-bg--1: var(--eh-bg--1-theme-dark);
             --racecar-bg: var(--racecar-bg-theme-dark);
             --racecar-fg: var(--racecar-fg-theme-dark);
+            --ct-bg: var(--ct-bg-dark);
         }
         :root.theme-light {
             --eh-bg--1: var(--eh-bg--1-theme-light);
             --racecar-bg: var(--racecar-bg-theme-light);
             --racecar-fg: var(--racecar-fg-theme-light);
+            --ct-bg: var(--ct-bg-light);
         }
         .only-light-theme,
         .grid-motion__tile img.only-light-theme,
@@ -211,6 +217,14 @@ import GlobeIcon from '../components/icons/Globe.astro';
             </div>
         </div>
     </div>
+    <!-- trans-dots-backlight-ct shows underneath trans-dots header in DARK MODE when ct.js art intersects header,
+    because trans-dots becomes unreadable above fully white ct.js bg.
+    opacity controlled by JS when intersecting, light/dark theme visibility controlled by CSS -->
+    <div id="trans-dots-backlight-ct" class="only-dark-theme" style="margin-top: 0; position: fixed; top: 0; left: 0; right: 0; z-index: 9; height: 4rem; background-color: var(--eh-bg--1); transition: 0.1 opacity ease; opacity: 0;"></div>
+    <!-- trans-dots-backlight-racecar shows underneath trans-dots header in LIGHT MODE when MIT RACECAR Neo art intersects header,
+    because trans-dots becomes unreadable above fully black racecar bg.
+    opacity controlled by JS when intersecting, light/dark theme visibility controlled by CSS -->
+    <div id="trans-dots-backlight-racecar" class="only-light-theme" style="margin-top: 0; position: fixed; top: 0; left: 0; right: 0; z-index: 9; height: 4rem; background-color: var(--eh-bg--1); transition: 0.1 opacity ease; opacity: 0;"></div>
     <div class="grid page eh-content-on-bg--1" style="background-color: var(--eh-bg--1); margin-top: 0; padding-bottom: 8rem;">
         <div class="content">
             <div id="projects" style="scroll-margin-block-start: 5rem;">
@@ -283,11 +297,13 @@ import GlobeIcon from '../components/icons/Globe.astro';
             <!-- </div> -->
             <!-- </div> -->
             <div id="contributions" style="scroll-margin-block-start: 5rem;">
-                <h2 class="h3" style="margin-top: 3rem; opacity: 0.9;">Open-Source Contributions</h2>
+                <h2 class="h3" style="margin: 3rem 0 2rem 0; opacity: 0.9;">Open-Source Contributions</h2>
                 <div class="grid customgridlist">
                     <div class="box">
-                        <div class="flex" style="height: 12rem; width: 100%; align-items: center; justify-content: center;">
-                            <CtjsLogotype height="5rem" style="filter: drop-shadow(0px 0px 4px #ffffff);" />
+                        <div id="ct-art" style="border-radius: 1rem; background-color: var(--ct-bg); position: relative; height: 12rem;">
+                            <div class="flex" style="height: 12rem; width: 100%; align-items: center; justify-content: center;">
+                                <CtjsLogotype height="5rem" style="filter: drop-shadow(0px 0px 4px #ffffff);" />
+                            </div>
                         </div>
                             <div class="flex" style="align-items: start; flex-wrap: wrap; justify-content: space-between;">
                                 <p><span class="fg0" style="font-size: 0.9rem;">Contributed to</span> <span class="line" style="font-size: 1.1rem;">Ct.js</span></p>
@@ -298,7 +314,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
                             </div>
                     </div>
                     <div class="box">
-                        <div style="position: relative; height: 12rem; width: 100%; border-radius: 1rem; background-color: var(--racecar-bg);">
+                        <div id="racecar-art" style="position: relative; height: 12rem; width: 100%; border-radius: 1rem; background-color: var(--racecar-bg);">
                             <div class="flex" style="position: absolute; z-index: 2; inset: 0; align-items: center; justify-content: center; pointer-events: none;">
                                 <div class="flex" style="align-items: center; gap: 1rem; flex-wrap: nowrap;">
                                     <img src={MITRacecarNeoLogo.src} alt="MIT Racecar Neo" style="width: 2.4rem; height: 2.4rem;" />
@@ -366,7 +382,7 @@ import GlobeIcon from '../components/icons/Globe.astro';
                     </div>
                 </div>
             </div>
-            <div id="about">
+            <div id="about" style="height: 40rem;">
                 ich komme aus munchen
             </div>
         </div>
@@ -458,4 +474,20 @@ import GlobeIcon from '../components/icons/Globe.astro';
             localStorage.setItem("eh:theme", "light");
         }
     });
+</script>
+<script>
+    const backlightCt = document.getElementById("trans-dots-backlight-ct");
+    const backlightRacecar = document.getElementById("trans-dots-backlight-racecar");
+    const observer = new IntersectionObserver(
+        entries => entries.forEach(entry => {
+            if (entry?.target?.id == "ct-art") {
+                backlightCt.style.opacity = entry.isIntersecting ? "0.7" : "0";
+            } else if (entry?.target?.id == "racecar-art") {
+                backlightRacecar.style.opacity = entry.isIntersecting ? "0.7" : "0";
+            }
+        }),
+        { rootMargin: '0px 0px -90% 0px' }
+    );
+    observer.observe(document.getElementById("ct-art"));
+    observer.observe(document.getElementById("racecar-art"));
 </script>
